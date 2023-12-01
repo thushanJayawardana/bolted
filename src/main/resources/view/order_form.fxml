@@ -54,7 +54,7 @@
       <TextField layoutX="551.0" layoutY="170.0" prefHeight="40.0" prefWidth="137.0" promptText="Qty On Hand" style="-fx-background-radius: 16;" />
       <TextField layoutX="106.0" layoutY="231.0" prefHeight="40.0" prefWidth="217.0" promptText="Customer ID" style="-fx-background-radius: 16;" />
       <TextField layoutX="354.0" layoutY="231.0" prefHeight="40.0" prefWidth="217.0" promptText="Customer Name" style="-fx-background-radius: 16;" />
-      <JFXButton layoutX="687.0" layoutY="349.0" onAction="#btnPlaceOrderOnAction" prefHeight="29.0" prefWidth="129.0" style="-fx-background-radius: 25; -fx-background-color: #BF6754;" text="Place Order" textFill="WHITE">
+      <JFXButton alignment="CENTER_RIGHT" layoutX="687.0" layoutY="349.0" onAction="#btnPlaceOrderOnAction" prefHeight="29.0" prefWidth="129.0" style="-fx-background-radius: 25; -fx-background-color: #BF6754;" text="Place Order" textFill="WHITE">
          <font>
             <Font name="Ubuntu Bold" size="16.0" />
          </font>
@@ -62,7 +62,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="489.0" layoutY="349.0" onAction="#btnClearOnAction" prefHeight="24.0" prefWidth="87.0" style="-fx-background-radius: 25; -fx-background-color: #BF6754;" text="Clear" textFill="WHITE">
+      <JFXButton alignment="CENTER_RIGHT" layoutX="489.0" layoutY="349.0" onAction="#btnClearOnAction" prefHeight="24.0" prefWidth="87.0" style="-fx-background-radius: 25; -fx-background-color: #BF6754;" text="Clear" textFill="WHITE">
          <font>
             <Font name="Ubuntu Bold" size="16.0" />
          </font>
@@ -70,7 +70,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="587.0" layoutY="349.0" onAction="#btnAddOnAction" prefHeight="24.0" prefWidth="87.0" style="-fx-background-radius: 25; -fx-background-color: #BF6754;" text="Add" textFill="WHITE">
+      <JFXButton alignment="CENTER_RIGHT" layoutX="587.0" layoutY="349.0" onAction="#btnAddOnAction" prefHeight="24.0" prefWidth="87.0" style="-fx-background-radius: 25; -fx-background-color: #BF6754;" text="Add" textFill="WHITE">
          <font>
             <Font name="Ubuntu Bold" size="16.0" />
          </font>
@@ -114,5 +114,20 @@
             <Font name="Ubuntu Bold" size="15.0" />
          </font>
       </Label>
+      <ImageView fitHeight="19.0" fitWidth="16.0" layoutX="496.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/icons8-clear-24.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="19.0" fitWidth="25.0" layoutX="598.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/icons8-add-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="19.0" fitWidth="25.0" layoutX="692.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/icons8-purchase-order-48.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
