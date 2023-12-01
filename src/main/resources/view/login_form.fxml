@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+   <children>
+      <TextField fx:id="txtUserName" layoutX="688.0" layoutY="263.0" onAction="#txtUserNameOnAction" prefHeight="50.0" prefWidth="407.0" promptText="UserName" style="-fx-background-radius: 20;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="Ubuntu" size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="534.0" layoutY="102.0" text="Login">
+         <font>
+            <Font name="Ubuntu Bold" size="50.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="1012.0" layoutY="458.0" onAction="#btnRegisterOnAction" text="Register" textFill="#0400ff">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="851.0" layoutY="420.0" text="Not a registered member ?">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <JFXButton layoutX="688.0" layoutY="458.0" text="Foget Password ?">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="5.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="512.0" fitWidth="531.0" layoutX="116.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/—Pngtree—hardware%20maintenance%20tools_1402608.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="851.0" layoutY="581.0" onAction="#btnLoginOnAction" style="-fx-background-color: gray; -fx-background-radius: 30;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu Bold" size="25.0" />
+         </font>
+      </JFXButton>
+      <PasswordField fx:id="txtPassword" layoutX="688.0" layoutY="332.0" onAction="#txtPasswordOnAction" prefHeight="50.0" prefWidth="407.0" promptText="Password" style="-fx-background-radius: 20;">
+         <font>
+            <Font name="Ubuntu" size="18.0" />
+         </font>
+      </PasswordField>
+   </children>
+</AnchorPane>

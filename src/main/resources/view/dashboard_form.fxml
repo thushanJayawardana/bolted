@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
+   <children>
+      <AnchorPane prefHeight="800.0" prefWidth="290.0" style="-fx-background-color: #E1BAB2;">
+         <children>
+            <Label layoutX="43.0" layoutY="93.0" text="Dashboard">
+               <font>
+                  <Font name="Ubuntu Bold" size="40.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="11.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/logo.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="-1.0" layoutY="188.0" onAction="#btnProductOnAction" prefHeight="60.0" prefWidth="290.0" style="-fx-background-radius: 25;" text="Manage Product category">
+               <font>
+                  <Font name="Ubuntu Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
+            <JFXButton layoutX="-1.0" layoutY="248.0" onAction="#btnEmployeeOnAction" prefHeight="60.0" prefWidth="290.0" style="-fx-background-radius: 25;" text="Manage Employees">
+               <font>
+                  <Font name="Ubuntu Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton layoutX="-1.0" layoutY="308.0" onAction="#btnSupplierOnAction" prefHeight="60.0" prefWidth="290.0" style="-fx-background-radius: 25;" text="Manage Suppliers">
+               <font>
+                  <Font name="Ubuntu Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton layoutX="3.0" layoutY="368.0" onAction="#btnCustomerOnAction" prefHeight="60.0" prefWidth="290.0" style="-fx-background-radius: 25;" text="Manage Customers">
+               <font>
+                  <Font name="Ubuntu Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton layoutX="3.0" layoutY="428.0" onAction="#btnItemOnAction" prefHeight="60.0" prefWidth="290.0" style="-fx-background-radius: 25;" text="Manage Items">
+               <font>
+                  <Font name="Ubuntu Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton layoutX="69.0" layoutY="704.0" onAction="#btnLogOutOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 40; -fx-background-color: #BF6754;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="Ubuntu Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton layoutX="3.0" layoutY="548.0" onAction="#btnBillingOnAction" prefHeight="60.0" prefWidth="290.0" style="-fx-background-radius: 25;" text="Billing Informations">
+               <font>
+                  <Font name="Ubuntu Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton layoutX="3.0" layoutY="488.0" onAction="#btnOrderOnAction" prefHeight="60.0" prefWidth="290.0" style="-fx-background-radius: 25;" text="Manage Orders">
+               <font>
+                  <Font name="Ubuntu Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="rootNode" layoutX="292.0" prefHeight="800.0" prefWidth="910.0" style="-fx-background-color: #f0f8ff;">
+         <children>
+            <AnchorPane layoutX="-6.0" layoutY="-1.0" prefHeight="75.0" prefWidth="917.0" style="-fx-background-color: #E1BAB2;">
+               <children>
+                  <Label layoutX="668.0" layoutY="13.0" text="Date :">
+                     <font>
+                        <Font name="Ubuntu Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="668.0" layoutY="41.0" text="Time :">
+                     <font>
+                        <Font name="Ubuntu Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblDate" layoutX="723.0" layoutY="15.0" prefHeight="16.0" prefWidth="166.0" />
+                  <Label fx:id="lblTime" layoutX="723.0" layoutY="43.0" prefHeight="16.0" prefWidth="166.0" />
+               </children></AnchorPane>
+            <ImageView fitHeight="331.0" fitWidth="504.0" layoutX="1.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/loginback.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="28.0" layoutY="154.0" prefHeight="115.0" prefWidth="275.0" style="-fx-background-color: #cee6f9; -fx-background-radius: 16;">
+               <children>
+                  <Label layoutX="123.0" layoutY="16.0" text="Total Customers">
+                     <font>
+                        <Font name="Ubuntu Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTotalCustomers" layoutX="155.0" layoutY="50.0" prefHeight="48.0" prefWidth="80.0">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="319.0" layoutY="155.0" prefHeight="115.0" prefWidth="275.0" style="-fx-background-color: #cee6f9; -fx-background-radius: 16;">
+               <children>
+                  <Label layoutX="123.0" layoutY="16.0" text="Total Suppliers">
+                     <font>
+                        <Font name="Ubuntu Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTotalSupplers" layoutX="155.0" layoutY="50.0" prefHeight="48.0" prefWidth="80.0">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="611.0" layoutY="155.0" prefHeight="115.0" prefWidth="275.0" style="-fx-background-color: #cee6f9; -fx-background-radius: 16;">
+               <children>
+                  <Label layoutX="136.0" layoutY="16.0" text="Total Orders">
+                     <font>
+                        <Font name="Ubuntu Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTotalOrders" layoutX="155.0" layoutY="50.0" prefHeight="48.0" prefWidth="80.0">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="374.0" layoutY="93.0" text="Overview">
+               <font>
+                  <Font name="Ubuntu Bold" size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

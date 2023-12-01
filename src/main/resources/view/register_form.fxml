@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RegisterFormController">
+   <children>
+      <Label fx:id="registerLabel" layoutX="482.0" layoutY="108.0" text="Register">
+         <font>
+            <Font name="Ubuntu Bold" size="50.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/logo.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtName" layoutX="359.0" layoutY="224.0" onAction="#txtNameOnAction" prefHeight="50.0" prefWidth="450.0" style="-fx-background-radius: 20;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+      <Label layoutX="365.0" layoutY="198.0" prefHeight="21.0" prefWidth="142.0" text="Full Name" textFill="#808080">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="365.0" layoutY="301.0" prefHeight="21.0" prefWidth="142.0" text="Password" textFill="#808080">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="365.0" layoutY="414.0" prefHeight="21.0" prefWidth="167.0" text="Confirm Password" textFill="#808080">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="686.0" layoutY="589.0" onAction="#btnRegisterOnAction" style="-fx-background-color: gray; -fx-background-radius: 30;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu" size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="546.0" layoutY="589.0" onAction="#btnBackOnAction" prefHeight="0.0" prefWidth="100.0" style="-fx-background-color: gray; -fx-background-radius: 30;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu" size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TextField fx:id="txtPassword" layoutX="359.0" layoutY="329.0" onAction="#txtPasswordOnAction" prefHeight="50.0" prefWidth="450.0" style="-fx-background-radius: 20;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+      <TextField fx:id="txtConPassword" layoutX="359.0" layoutY="441.0" onAction="#txtConPasswordOnAction" prefHeight="50.0" prefWidth="450.0" style="-fx-background-radius: 20;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+   </children>
+</AnchorPane>
