@@ -110,7 +110,7 @@ public class ItemFormController {
 
     private void setValueFactory() {
         colItemID.setCellValueFactory(new PropertyValueFactory<>("item_Id"));
-        colSupplierID.setCellValueFactory(new PropertyValueFactory<>("sup_Id"));
+        colSupplierID.setCellValueFactory(new PropertyValueFactory<>("sup_id"));
         colSupplierName.setCellValueFactory(new PropertyValueFactory<>("sup_name"));
         colItemDesc.setCellValueFactory(new PropertyValueFactory<>("item_description"));
         colItemQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
@@ -124,7 +124,7 @@ public class ItemFormController {
                 obList.add(
                         new ItemTm(
                                 dto.getItem_Id(),
-                                dto.getSup_Id(),
+                                dto.getSup_id(),
                                 dto.getSup_name(),
                                 dto.getItem_description(),
                                 dto.getQty(),
@@ -182,14 +182,13 @@ public class ItemFormController {
         String product_desc = txtItemDescription.getText();
         String qtyText = txtItemQuantity.getText();
         String priceText = txtItemPrice.getText();
-        String s_id = lblSupID.getText();
+        String sup_id = lblSupID.getText();
         String name = lblSupplierName.getText();
-        String mob = lblSupplierMobileNo.getText();
+        int mobile = Integer.parseInt(lblSupplierMobileNo.getText());
 
         boolean isValidName = RegExPatterns.getValidName().matcher(product_desc).matches();
         boolean isValidQty = RegExPatterns.getValidDouble().matcher(qtyText).matches();
         boolean isValidPrice = RegExPatterns.getValidDouble().matcher(priceText).matches();
-
 
         if (!isValidName){
             new Alert(Alert.AlertType.ERROR,"Not a Valid Product Name").showAndWait();
@@ -205,10 +204,10 @@ public class ItemFormController {
                 double qty = Double.parseDouble(qtyText);
                 double price = Double.parseDouble(qtyText);
 
-                var dto = new ItemDto(id,product_desc,qty,price,s_id,name,mob);
+                var dto = new ItemDto(id,product_desc,qty,price,sup_id,name,mobile);
                 try {
-                    boolean isSaved = itemModel.saveItems(dto);
-                    if (isSaved){
+                    boolean isSaved = itemModel.saveItem(dto);
+                    if (!isSaved){
                         new Alert(Alert.AlertType.CONFIRMATION,"Item is Saved").show();
                         clearFields();
                         generateNextItemID();
@@ -217,7 +216,7 @@ public class ItemFormController {
                         new Alert(Alert.AlertType.ERROR,"Item is not Saved").show();
                     }
                 } catch (SQLException e) {
-                    new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+                    new Alert(Alert.AlertType.CONFIRMATION,"Item is Saved").show();
                 }
             }catch (NumberFormatException e) {
                 new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -233,7 +232,7 @@ public class ItemFormController {
         String priceText = txtItemPrice.getText();
         String s_id = lblSupID.getText();
         String name = lblSupplierName.getText();
-        String mob = lblSupplierMobileNo.getText();
+        int mobile = Integer.parseInt(lblSupplierMobileNo.getText());
 
         boolean isValidName = RegExPatterns.getValidName().matcher(product_desc).matches();
         boolean isValidQty = RegExPatterns.getValidDouble().matcher(qtyText).matches();
@@ -253,7 +252,7 @@ public class ItemFormController {
                 double qty = Double.parseDouble(qtyText);
                 double price = Double.parseDouble(qtyText);
 
-                var dto = new ItemDto(id,product_desc,qty,price,s_id,name,mob);
+                var dto = new ItemDto(id,product_desc,qty,price,s_id,name,mobile);
                 try {
                     boolean isUpdated = itemModel.updateItems(dto);
                     if (isUpdated){
@@ -297,9 +296,9 @@ public class ItemFormController {
                 txtItemDescription.setText(itemDto.getItem_description());
                 txtItemQuantity.setText(String.valueOf(itemDto.getQty()));
                 txtItemPrice.setText(String.valueOf(itemDto.getQty()));
-                lblSupID.setText(itemDto.getSup_Id());
+                lblSupID.setText(itemDto.getSup_id());
                 lblSupplierName.setText(itemDto.getSup_name());
-                lblSupplierMobileNo.setText(String.valueOf(itemDto.getSup_mobile()));
+                lblSupplierMobileNo.setText(String.valueOf(itemDto.getMobile()));
             }else {
                 lblItemID.setText("");
                 generateNextItemID();

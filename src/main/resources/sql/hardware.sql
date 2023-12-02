@@ -86,3 +86,12 @@ CREATE TABLE item(
                       qty DOUBLE ,
                       price DOUBLE
 );
+
+CREATE TABLE supplier_details (
+    sup_Id varchar(20),
+    item_Id varchar(20),
+    FOREIGN KEY (sup_Id) REFERENCES supplier(sup_Id)ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (item_Id) REFERENCES item(item_Id)ON UPDATE CASCADE ON DELETE CASCADE
+
+);
+

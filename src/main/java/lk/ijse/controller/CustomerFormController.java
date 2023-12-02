@@ -52,7 +52,7 @@ public class CustomerFormController {
 
     private CustomerModel customerModel=new CustomerModel();
 
-    private void initialize(){
+    public void initialize(){
         setCellValueFactory();
         generateNextCustomerID();
         loadAllCustomers();

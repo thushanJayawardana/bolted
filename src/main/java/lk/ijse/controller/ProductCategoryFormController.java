@@ -268,7 +268,7 @@ public class ProductCategoryFormController {
 
         try {
             ProductDto productDto;
-                productDto = ProductModel.searchProductById(searchInput);
+                productDto = productModel.searchProductById(searchInput);
             if (productDto != null ){
                 lblProductId.setText(productDto.getP_Id());
                 txtProductName.setText(productDto.getName());

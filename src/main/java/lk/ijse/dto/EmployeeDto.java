@@ -11,6 +11,6 @@ public class EmployeeDto {
     private String e_Id;
     private String name;
     private String email;
-    private String mobile;
+    private int mobile;
     private String position;
 }

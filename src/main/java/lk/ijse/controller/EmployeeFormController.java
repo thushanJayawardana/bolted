@@ -121,7 +121,43 @@ public class EmployeeFormController {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
+        String id = lblEmployeeID.getText();
+        String name = txtEmployeeName.getText();
+        String email = txtemail.getText();
+        String mobile = txtmobile.getText();
+        String position = txtPosition.getText();
 
+        boolean isValidFirstName = RegExPatterns.getValidName().matcher(name).matches();
+        boolean isValidEmail = RegExPatterns.getValidEmail().matcher(email).matches();
+        boolean isValidMobile = RegExPatterns.getValidMobile().matcher(mobile).matches();
+        boolean isValidPosition = RegExPatterns.getValidDescription().matcher(position).matches();
+
+        if (!isValidFirstName){
+            new Alert(Alert.AlertType.ERROR,"Can nor Delete Employee.First Name is empty").showAndWait();
+            return;
+        }if (!isValidEmail){
+            new Alert(Alert.AlertType.ERROR,"Can nor Delete Employee.Last Name is empty").showAndWait();
+            return;
+        }if (!isValidMobile){
+            new Alert(Alert.AlertType.ERROR,"Can nor Delete Employee.Address is empty").showAndWait();
+            return;
+        }if (!isValidPosition){
+            new Alert(Alert.AlertType.ERROR,"Can nor Delete Employee.Phone Number is empty").showAndWait();
+        } else {
+            try {
+                boolean isDeleted = employeeModel.deleteEmployee(id);
+                if (isDeleted){
+                    new Alert(Alert.AlertType.CONFIRMATION,"Employee is Deleted").show();
+                    clearFields();
+                    generateNextEmployeeID();
+                    loadAllEmployees();
+                }else {
+                    new Alert(Alert.AlertType.ERROR,"Employee is Not Deleted").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            }
+        }
     }
 
     @FXML
@@ -129,12 +165,12 @@ public class EmployeeFormController {
         String id = lblEmployeeID.getText();
         String name = txtEmployeeName.getText();
         String email = txtemail.getText();
-        String mobile = txtmobile.getText();
+        String mobileText = txtmobile.getText();
         String position = txtPosition.getText();
 
         boolean isValidName = RegExPatterns.getValidName().matcher(name).matches();
         boolean isValidEmail = RegExPatterns.getValidEmail().matcher(email).matches();
-        boolean isValidMobile = RegExPatterns.getValidMobile().matcher(mobile).matches();
+        boolean isValidMobile = RegExPatterns.getValidMobile().matcher(mobileText).matches();
         boolean isValidPosition = RegExPatterns.getValidName().matcher(position).matches();
 
         if (!isValidName){
@@ -149,6 +185,7 @@ public class EmployeeFormController {
         }if (!isValidPosition){
             new Alert(Alert.AlertType.ERROR,"Cannot Save Employee.Position is empty").showAndWait();
         }else {
+            int mobile = Integer.parseInt(mobileText);
             var dto = new EmployeeDto(id, name, email, mobile ,position);
             try {
                 boolean isSaved = employeeModel.saveEmployee(dto);
@@ -168,7 +205,45 @@ public class EmployeeFormController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        String id = lblEmployeeID.getText();
+        String name = txtEmployeeName.getText();
+        String email = txtemail.getText();
+        String mobileText = txtmobile.getText();
+        String position = txtPosition.getText();
 
+        boolean isValidFirstName = RegExPatterns.getValidName().matcher(name).matches();
+        boolean isValidLastName = RegExPatterns.getValidEmail().matcher(email).matches();
+        boolean isValidMobile = RegExPatterns.getValidMobile().matcher(mobileText).matches();
+        boolean isVaidPosition = RegExPatterns.getValidDescription().matcher(position).matches();
+
+        if (!isValidFirstName){
+            new Alert(Alert.AlertType.ERROR,"Can nor Update Employee.First Name is empty").showAndWait();
+            return;
+        }if (!isValidLastName){
+            new Alert(Alert.AlertType.ERROR,"Can nor Update Employee.Last Name is empty").showAndWait();
+            return;
+        }if (!isValidMobile){
+            new Alert(Alert.AlertType.ERROR,"Can nor Update Employee.Address is empty").showAndWait();
+            return;
+        }if (!isVaidPosition){
+            new Alert(Alert.AlertType.ERROR,"Can nor Update Employee.Phone Number is empty").showAndWait();
+        } else {
+            int mobile = Integer.parseInt(mobileText);
+            var dto = new EmployeeDto(id,name,email,mobile,position);
+            try {
+                boolean isUpdated = employeeModel.updateEmployee(dto);
+                if (isUpdated){
+                    new Alert(Alert.AlertType.CONFIRMATION,"Employee is Updated").show();
+                    clearFields();
+                    generateNextEmployeeID();
+                    loadAllEmployees();
+                }else {
+                    new Alert(Alert.AlertType.ERROR,"Employee is not Updated").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            }
+        }
     }
 
     @FXML
@@ -183,7 +258,29 @@ public class EmployeeFormController {
 
     @FXML
     void txtSearchOnAction(ActionEvent event) {
-
+        String searchInput = txtSearch.getText();
+        try {
+            EmployeeDto employeeDto;
+            if (searchInput.matches("\\d+")){
+                employeeDto = employeeModel.searchEmployeeByPhoneNumber(searchInput);
+            }else {
+                employeeDto = employeeModel.searchEmployeeByID(searchInput);
+            }
+            if (employeeDto != null){
+                lblEmployeeID.setText(employeeDto.getE_Id());
+                txtEmployeeName.setText(employeeDto.getName());
+                txtemail.setText(employeeDto.getEmail());
+                txtmobile.setText(String.valueOf(employeeDto.getMobile()));
+                txtPosition.setText(employeeDto.getPosition());
+                txtSearch.setText("");
+            }else {
+                lblEmployeeID.setText("");
+                generateNextEmployeeID();
+                new Alert(Alert.AlertType.INFORMATION,"Employee not found").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
     }
 
     @FXML

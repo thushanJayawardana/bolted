@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemModel {
+    private SupplierDetailsModel supplierDetailsModel = new SupplierDetailsModel();
     private String splitItemID(String currentItemID){
         if (currentItemID != null){
             String [] split = currentItemID.split("[I]");
@@ -33,21 +34,22 @@ public class ItemModel {
         }
         return splitItemID(null);
     }
-    public boolean saveItems(ItemDto dto) throws SQLException {
+    public boolean saveItem(ItemDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "INSERT INTO item VALUES (?,?,?,?,?,?,?)";
         PreparedStatement ptsm = connection.prepareStatement(sql);
         ptsm.setString(1,dto.getItem_Id());
         ptsm.setString(2,dto.getItem_description());
-        ptsm.setString(3, String.valueOf(dto.getQty()));
-        ptsm.setString(4, String.valueOf(dto.getPrice()));
-        ptsm.setString(5,dto.getSup_Id());
+        ptsm.setDouble(3,dto.getQty());
+        ptsm.setDouble(4,dto.getPrice());
+        ptsm.setString(5,dto.getSup_id());
         ptsm.setString(6,dto.getSup_name());
-        ptsm.setString(7,String.valueOf(dto.getSup_mobile()));
+        ptsm.setInt(7,dto.getMobile());
 
         return ptsm.executeUpdate() > 0;
     }
+
     public boolean deleteItems(String id) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
@@ -60,14 +62,14 @@ public class ItemModel {
     public boolean updateItems(ItemDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE item SET item_description = ?, qty = ?, price = ?, sup_Id = ?, sup_name = ?, sup_mobile = ? WHERE item_Id = ?";
+        String sql = "UPDATE item SET item_description = ?, qty = ?, price = ?, sup_id = ?,sup_name = ?,phone_number = ? WHERE item_Id = ?";
         PreparedStatement ptsm = connection.prepareStatement(sql);
         ptsm.setString(1, dto.getItem_description());
         ptsm.setString(2, String.valueOf(dto.getQty()));
         ptsm.setString(3, String.valueOf(dto.getPrice()));
-        ptsm.setString(4,dto.getSup_Id());
+        ptsm.setString(4,dto.getSup_id());
         ptsm.setString(5,dto.getSup_name());
-        ptsm.setString(6, String.valueOf(dto.getSup_mobile()));
+        ptsm.setInt(6,dto.getMobile());
         ptsm.setString(7,dto.getItem_Id());
 
         return ptsm.executeUpdate() > 0;
@@ -88,9 +90,9 @@ public class ItemModel {
             double Item_price = Double.parseDouble(resultSet.getString(4));
             String Item_su_id = resultSet.getString(5);
             String Item_su_name = resultSet.getString(6);
-            String Item_su_mob = resultSet.getString(7);
+            int Item_mobile = resultSet.getInt(7);
 
-            dto = new ItemDto(Item_id, Item_desc ,Item_qty ,Item_price, Item_su_id,Item_su_name,Item_su_mob);
+            dto = new ItemDto(Item_id, Item_desc ,Item_qty ,Item_price, Item_su_id,Item_su_name,Item_mobile);
         }
         return dto;
     }
@@ -112,7 +114,7 @@ public class ItemModel {
                             resultSet.getDouble(4),
                             resultSet.getString(5),
                             resultSet.getString(6),
-                            resultSet.getString(7)
+                            resultSet.getInt(7)
                     )
             );
         }

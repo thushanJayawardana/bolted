@@ -87,6 +87,7 @@ public class OrdersFormController {
         setCellValueFactory();
         generateNextOrderID();
         generateNextCustomerID();
+        lblOrderDate.setText(String.valueOf(LocalDate.now()));
     }
 
     private void generateNextCustomerID() {
@@ -141,7 +142,7 @@ public class OrdersFormController {
         colOrderID.setCellValueFactory(new PropertyValueFactory<>("order_Id"));
         colProductID.setCellValueFactory(new PropertyValueFactory<>("product_Id"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unit_price"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unit_Price"));
         colQuantity.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colTotalPrice.setCellValueFactory(new PropertyValueFactory<>("total"));
     }
@@ -256,7 +257,7 @@ public class OrdersFormController {
 
     @FXML
     void txtSearchProductOnAction(ActionEvent event) {
-        String searchInput = txtSearchCustomerID.getText();
+        String searchInput = txtSearchProductIID.getText();
 
         try {
             ProductDto productDto;

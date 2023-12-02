@@ -42,7 +42,7 @@ public class EmployeeModel {
         ptsm.setString(1, dto.getE_Id());
         ptsm.setString(2, dto.getName());
         ptsm.setString(3,dto.getEmail());
-        ptsm.setString(4,dto.getMobile());
+        ptsm.setInt(4,dto.getMobile());
         ptsm.setString(5, dto.getPosition());
 
         return ptsm.executeUpdate() > 0;
@@ -61,7 +61,7 @@ public class EmployeeModel {
             String Employee_id = resultSet.getString(1);
             String Employee_name = resultSet.getString(2);
             String Employee_email = resultSet.getString(3);
-            String Employee_mobile = resultSet.getString(4);
+            int Employee_mobile = resultSet.getInt(4);
             String Employee_position = resultSet.getString(5);
 
             dto = new EmployeeDto(Employee_id, Employee_name, Employee_email, Employee_mobile, Employee_position);
@@ -77,7 +77,7 @@ public class EmployeeModel {
         PreparedStatement ptsm = connection.prepareStatement(sql);
         ptsm.setString(1, dto.getName());
         ptsm.setString(2, dto.getEmail());
-        ptsm.setString(3, dto.getMobile());
+        ptsm.setInt(3, dto.getMobile());
         ptsm.setString(4,dto.getPosition());
         ptsm.setString(5, dto.getE_Id());
 
@@ -108,11 +108,33 @@ public class EmployeeModel {
                             resultSet.getString(1),
                             resultSet.getString(2),
                             resultSet.getString(3),
-                            resultSet.getString(4),
+                            resultSet.getInt(4),
                             resultSet.getString(5)
                     )
             );
         }
         return dtoList;
+    }
+
+    public EmployeeDto searchEmployeeByPhoneNumber(String searchInput) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT * FROM employee WHERE mobile = ?";
+        PreparedStatement ptsm = connection.prepareStatement(sql);
+        ptsm.setString(1,searchInput);
+
+        ResultSet resultSet = ptsm.executeQuery();
+
+        EmployeeDto dto = null;
+        if (resultSet.next()) {
+            String id = resultSet.getString(1);
+            String name = resultSet.getString(2);
+            String email = resultSet.getString(3);
+            int tele = Integer.parseInt(resultSet.getString(4));
+            String po = resultSet.getString(5);
+
+            dto = new EmployeeDto(id,name,email,tele,po);
+        }
+        return dto;
     }
 }

@@ -72,7 +72,7 @@ public class ProductModel {
         }
         return dtoList;
     }
-    public static ProductDto searchProductById(String searchId) throws SQLException {
+    public ProductDto searchProductById(String searchId) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "SELECT * FROM product WHERE p_Id = ?";
@@ -116,7 +116,7 @@ public class ProductModel {
     private boolean updateQty(String productId, int qty) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE products SET qty = qty - ? WHERE p_Id = ?";
+        String sql = "UPDATE product SET qty = qty - ? WHERE p_Id = ?";
         PreparedStatement ptsm = connection.prepareStatement(sql);
         ptsm.setDouble(1,qty);
         ptsm.setString(2,productId);

@@ -12,7 +12,7 @@ public class ItemDto {
     private String item_description;
     private double qty;
     private double price;
-    private String sup_Id;
+    private String sup_id;
     private String sup_name;
-    private String sup_mobile;
+    private int mobile;
 }

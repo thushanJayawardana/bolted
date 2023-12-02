@@ -37,7 +37,7 @@
       <TextField fx:id="txtCustomerName" layoutX="365.0" layoutY="170.0" onAction="#txtCustomerNameOnAction" prefHeight="40.0" prefWidth="232.0" promptText="Customer Name" style="-fx-background-radius: 16;" />
       <TextField fx:id="txtAddress" layoutX="106.0" layoutY="225.0" onAction="#txtAddressOnAction" prefHeight="40.0" prefWidth="217.0" promptText="Address" style="-fx-background-radius: 16;" />
       <TextField fx:id="txtMobile" layoutX="364.0" layoutY="225.0" onAction="#txtMobileOnAction" prefHeight="40.0" prefWidth="232.0" promptText="Mobile No." style="-fx-background-radius: 16;" />
-      <Label fx:id="lblCustomerID" layoutX="157.0" layoutY="178.0" prefHeight="25.0" prefWidth="147.0">
+      <Label fx:id="lblCustomerID" layoutX="142.0" layoutY="178.0" prefHeight="25.0" prefWidth="147.0">
          <font>
             <Font name="Ubuntu Bold" size="15.0" />
          </font>
