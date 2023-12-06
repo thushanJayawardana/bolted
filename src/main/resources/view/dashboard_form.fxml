@@ -12,7 +12,7 @@
    <children>
       <AnchorPane prefHeight="800.0" prefWidth="290.0" style="-fx-background-color: #E1BAB2;">
          <children>
-            <Label layoutX="43.0" layoutY="93.0" text="Dashboard">
+            <Label layoutX="43.0" layoutY="93.0" onDragDetected="#btnDashboardOnAction" text="Dashboard">
                <font>
                   <Font name="Ubuntu Bold" size="40.0" />
                </font>

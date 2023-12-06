@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -52,8 +53,10 @@ public class DashboardFormController {
         this.rootNode.getChildren().add(anchorPane);
     }
     @FXML
-    void btnBillingOnAction(ActionEvent event) {
-
+    void btnBillingOnAction(ActionEvent event) throws IOException {
+        AnchorPane anchorPane=FXMLLoader.load(this.getClass().getResource("/view/billing_form.fxml"));
+        this.rootNode.getChildren().clear();
+        this.rootNode.getChildren().add(anchorPane);
     }
 
     @FXML
@@ -100,6 +103,13 @@ public class DashboardFormController {
         stage.setResizable(false);
         stage.show();
     }
+    @FXML
+    void btnDashboardOnAction(MouseEvent event) throws IOException {
+        AnchorPane anchorPane=FXMLLoader.load(this.getClass().getResource("/view/dash_form.fxml"));
+        this.rootNode.getChildren().clear();
+        this.rootNode.getChildren().add(anchorPane);
+    }
+
 
     public void setUser(RegisterDto userDto) {
         this.userDto = userDto;

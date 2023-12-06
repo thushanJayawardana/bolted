@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.BillingFormController">
+   <children>
+      <JFXButton layoutX="205.0" layoutY="174.0" onAction="#btnProductListOnAction" prefHeight="116.0" prefWidth="195.0" style="-fx-background-radius: 25; -fx-background-color: #fea734;" text="Product List" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="302.0" layoutY="62.0" text="Report Informations">
+         <font>
+            <Font name="Ubuntu Bold" size="30.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="498.0" layoutY="174.0" onAction="#btnCustomerListOnAction" prefHeight="116.0" prefWidth="195.0" style="-fx-background-radius: 25; -fx-background-color: #fea734;" text="Customer List" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="205.0" layoutY="309.0" onAction="#btnSupplierListOnAction" prefHeight="116.0" prefWidth="195.0" style="-fx-background-radius: 25; -fx-background-color: #fea734;" text="Supplier List" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="498.0" layoutY="309.0" onAction="#btnEmployeeOnAction" prefHeight="116.0" prefWidth="195.0" style="-fx-background-radius: 25; -fx-background-color: #fea734;" text="Employee List" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu Bold" size="20.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

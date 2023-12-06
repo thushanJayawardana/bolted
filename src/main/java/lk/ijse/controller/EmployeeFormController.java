@@ -133,16 +133,16 @@ public class EmployeeFormController {
         boolean isValidPosition = RegExPatterns.getValidDescription().matcher(position).matches();
 
         if (!isValidFirstName){
-            new Alert(Alert.AlertType.ERROR,"Can nor Delete Employee.First Name is empty").showAndWait();
+            new Alert(Alert.AlertType.ERROR,"Cannot Delete Employee.First Name is empty").showAndWait();
             return;
         }if (!isValidEmail){
-            new Alert(Alert.AlertType.ERROR,"Can nor Delete Employee.Last Name is empty").showAndWait();
+            new Alert(Alert.AlertType.ERROR,"Cannot Delete Employee.Last Name is empty").showAndWait();
             return;
         }if (!isValidMobile){
-            new Alert(Alert.AlertType.ERROR,"Can nor Delete Employee.Address is empty").showAndWait();
+            new Alert(Alert.AlertType.ERROR,"Cannot Delete Employee.Address is empty").showAndWait();
             return;
         }if (!isValidPosition){
-            new Alert(Alert.AlertType.ERROR,"Can nor Delete Employee.Phone Number is empty").showAndWait();
+            new Alert(Alert.AlertType.ERROR,"Cannot Delete Employee.Phone Number is empty").showAndWait();
         } else {
             try {
                 boolean isDeleted = employeeModel.deleteEmployee(id);
@@ -217,16 +217,16 @@ public class EmployeeFormController {
         boolean isVaidPosition = RegExPatterns.getValidDescription().matcher(position).matches();
 
         if (!isValidFirstName){
-            new Alert(Alert.AlertType.ERROR,"Can nor Update Employee.First Name is empty").showAndWait();
+            new Alert(Alert.AlertType.ERROR,"Cannot Update Employee.First Name is empty").showAndWait();
             return;
         }if (!isValidLastName){
-            new Alert(Alert.AlertType.ERROR,"Can nor Update Employee.Last Name is empty").showAndWait();
+            new Alert(Alert.AlertType.ERROR,"Cannot Update Employee.Last Name is empty").showAndWait();
             return;
         }if (!isValidMobile){
-            new Alert(Alert.AlertType.ERROR,"Can nor Update Employee.Address is empty").showAndWait();
+            new Alert(Alert.AlertType.ERROR,"Cannot Update Employee.Address is empty").showAndWait();
             return;
         }if (!isVaidPosition){
-            new Alert(Alert.AlertType.ERROR,"Can nor Update Employee.Phone Number is empty").showAndWait();
+            new Alert(Alert.AlertType.ERROR,"Cannot Update Employee.Phone Number is empty").showAndWait();
         } else {
             int mobile = Integer.parseInt(mobileText);
             var dto = new EmployeeDto(id,name,email,mobile,position);

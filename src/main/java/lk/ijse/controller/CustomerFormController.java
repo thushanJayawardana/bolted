@@ -8,10 +8,16 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.controller.RegExPatterns.RegExPatterns;
+import lk.ijse.db.DbConnection;
 import lk.ijse.dto.CustomerDto;
 import lk.ijse.dto.tm.CustomerTm;
 import lk.ijse.model.CustomerModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -52,7 +58,7 @@ public class CustomerFormController {
 
     private CustomerModel customerModel=new CustomerModel();
 
-    public void initialize(){
+    public void initialize(){//abstraction method
         setCellValueFactory();
         generateNextCustomerID();
         loadAllCustomers();
@@ -223,7 +229,18 @@ public class CustomerFormController {
             }
         }
     }
-
+    @FXML
+    void btnReportOnAction(ActionEvent event) throws JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/CustomerList1.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(
+                jasperReport,
+                null,
+                DbConnection.getInstance().getConnection()
+        );
+        JasperViewer.viewReport(jasperPrint,false);
+    }
 
     @FXML
     void txtAddressOnAction(ActionEvent event) {

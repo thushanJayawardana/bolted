@@ -286,7 +286,7 @@ public class ProductCategoryFormController {
     }
     @FXML
     void btnReportOnAction(ActionEvent event) throws SQLException, JRException {
-        InputStream resourceAsStream = getClass().getResourceAsStream("/report/product.jrxml");
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/Products.jrxml");
         JasperDesign load = JRXmlLoader.load(resourceAsStream);
         JasperReport jasperReport = JasperCompileManager.compileReport(load);
         JasperPrint jasperPrint = JasperFillManager.fillReport(
